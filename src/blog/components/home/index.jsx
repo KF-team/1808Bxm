@@ -5,8 +5,11 @@ import MyLayout from '../layout/index'
 import Life from '../life/index'
 // 引入知识库
 import KnowHow from '../notebook/index'
+//引入学习吧
+import Learn from '../learn/index'
 // 引入选择框
 import Select from '../selectInput/index'
+
 export default class Index extends Component {
   // eslint-disable-next-line no-useless-constructor
   constructor() {
@@ -42,6 +45,8 @@ export default class Index extends Component {
       case 'select':
         Dom = <Select />
         break
+      case 'learn':
+        Dom = <Learn/> 
     }
     return (
       <div>

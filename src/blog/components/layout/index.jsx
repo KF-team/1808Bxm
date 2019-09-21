@@ -10,7 +10,8 @@ const { Header, Sider, Content } = Layout
 const MenuData = [
   { content: '生命周期', type: 'solution', hash: 'life', id: '1' },
   { content: '知识吧', type: 'solution', hash: 'knowHow', id: '2' },
-  { content: '选择吧', type: 'solution', hash: 'select', id: '3' }
+  { content: '选择吧', type: 'solution', hash: 'select', id: '3' },
+  { content: '学习吧', type:'solution', hash:'learn', id:'4'}
 ]
 export default class Index extends Component {
   constructor() {
