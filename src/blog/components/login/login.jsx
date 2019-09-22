@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import axios from 'axios'
+// import axios from 'axios'
 // 登陆
 import { Button } from 'antd'
 // import Home from './home.jsx'
@@ -12,12 +12,14 @@ export default class Login extends Component {
       password: ''
     }
   }
+
   //  改变input值
   handleChange = ({ target }) => {
     this.setState({
       [target.name]: target.value
     })
   }
+
   // 提交
   onSubmit = () => {
     const { username, password } = this.state
@@ -45,7 +47,7 @@ export default class Login extends Component {
       return alert('密码错误')
     }
     // console.log(res.data)
-    this.props.getstatus({ typename: 'home' })
+    this.props.getstatus({ typename: 'home', key: 'toHome' })
     // getstatus() // 跳转页面
     return console.log('提交')
   }
@@ -68,6 +70,7 @@ export default class Login extends Component {
               name="username"
             />
           </label>
+
           <label>
             密码框：
             <input
@@ -78,6 +81,7 @@ export default class Login extends Component {
               name="password"
             />
           </label>
+
           <label className="btn">
             <Button type="primary" onClick={this.onSubmit}>
               登陆

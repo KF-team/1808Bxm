@@ -1,22 +1,26 @@
 .register {
-  width: 270px;
-  height: 180px;
-  border: 1px solid #000;
+  width: 350px;
+  height: 220px;
   position: absolute;
   top: 50%;
   left: 50%;
   margin-top: -70px;
   margin-left: -165px;
+  background: rgba(255, 255, 255, 0.192);
   h1 {
     text-align: center;
+    margin: 0;
   }
   .form {
-    width: 260px;
-    height: 120px;
+    width: 350px;
+    height: 160px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px 0;
     label {
-      display: flex;
-      justify-content: center;
-      margin-top: 16px;
+      margin: 16px 0 0 0;
       a {
         margin-left: 10px;
         line-height: 30px;
@@ -26,24 +30,28 @@
 }
 
 .login {
-  width: 270px;
-  height: 180px;
-  border: 1px solid #000;
+  width: 350px;
+  height: 220px;
   position: absolute;
   top: 50%;
   left: 50%;
   margin-top: -70px;
   margin-left: -165px;
+  background: rgba(255, 255, 255, 0.192);
   h1 {
     text-align: center;
+    margin: 0;
   }
   .form {
-    width: 260px;
-    height: 120px;
+    width: 350px;
+    height: 160px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px 0;
     label {
-      display: flex;
-      justify-content: center;
-      margin-top: 16px;
+      margin: 16px 0 0 0;
       a {
         margin-left: 10px;
         line-height: 30px;
@@ -54,4 +62,9 @@
 
 label {
   display: block;
+}
+
+//home的高 生命周期内容的高
+.ant-collapse {
+  padding: 0 0 261px !important;
 }

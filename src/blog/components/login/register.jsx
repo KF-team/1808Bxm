@@ -31,6 +31,9 @@ export default class index extends Component {
   }
   //注册
   register = () => {
+    // 清除之前的标识残余 防止直接在注册按钮触发时跳转到home页面
+    sessionStorage.removeItem('limit')
+
     // 1.前端验证，验证通过以后
     const { username, password } = this.state
     if (!username) {
@@ -41,17 +44,14 @@ export default class index extends Component {
     // 2.调用接口，接口返回的数据存到全局里面
     // 凡是涉及用户数据信息的，在接口一定使用post请求方式
 
+    // 将账户密码存到本地一份【注意：在真实的项目里，不能这样做，仅适用于测试本地开发】
+    sessionStorage.setItem(
+      'userRegister',
+      JSON.stringify({ username, password })
+    )
+    // 3.控制跳转到登陆页面
 
-        // 将账户密码存到本地一份【注意：在真实的项目里，不能这样做，仅适用于测试本地开发】
-        sessionStorage.setItem(
-          'userRegister',
-          JSON.stringify({ username, password })
-        )
-        // 3.控制跳转到登陆页面
-
-        this.props.getstatus({typename: 'login' })
-
-
+    this.props.getstatus({ typename: 'login' })
   }
 
   // 注册过的用户进入登录页
@@ -94,7 +94,7 @@ export default class index extends Component {
             <Button type="primary" onClick={this.register}>
               注册提交
             </Button>
-            <a href="#" onClick={this.toLogin} >
+            <a href="#" onClick={this.toLogin}>
               登录
             </a>
           </label>
