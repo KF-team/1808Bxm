@@ -5,7 +5,7 @@ export default class index extends Component {
     super()
     this.state = {
       radio: '',
-      checkbox: [false, true, false],
+      checkbox: [false, false, false],
       texta: ''
     }
   }
@@ -19,7 +19,7 @@ export default class index extends Component {
   }
   //多选
   handleChange = ({ target }) => {
-    if (target.name == 'checkbox') {
+    if (target.name === 'checkbox') {
       const newCheckbox = [...this.state.checkbox]
       newCheckbox[target.value] = target.checked
       // console.log(newCheckbox)
@@ -32,12 +32,28 @@ export default class index extends Component {
       })
     }
   }
+  //判断
+  data = () => {
+    const { radio, checkbox, texta } = this.state
+    if (!radio.trim()) {
+      return alert('请选择')
+    } else if (!texta.trim()) {
+      return alert('内容未填写或未选择')
+    }
+    return true
+  }
   // 改变value值时
   onChange = ({ target }) => {
     console.log(target.value)
     this.setState({
       texta: target.value
     })
+  }
+  //提交
+  onSubmission = () => {
+    if (this.data()) {
+      alert('提交成功了！')
+    }
   }
   render() {
     const { radio, checkbox, texta } = this.state
@@ -49,7 +65,7 @@ export default class index extends Component {
           <input
             type="radio"
             name="radio"
-            checked={radio == '1'}
+            checked={radio === '1'}
             value="1"
             onChange={this.handleChange}
           />
@@ -59,7 +75,7 @@ export default class index extends Component {
           <input
             type="radio"
             name="radio"
-            checked={radio == '2'}
+            checked={radio === '2'}
             value="2"
             onChange={this.handleChange}
           />
@@ -69,7 +85,7 @@ export default class index extends Component {
           <input
             type="radio"
             name="radio"
-            checked={radio == '3'}
+            checked={radio === '3'}
             value="3"
             onChange={this.handleChange}
           />
@@ -160,7 +176,9 @@ export default class index extends Component {
           喜欢看书，偶尔写写字
         </label>
         <div className="div-back"></div>
-        <div>3.你认为当代年轻人应该持有怎样的世界观、价值观、人生观</div>
+        <div className="div-nr">
+          3.你认为当代年轻人应该持有怎样的世界观、价值观、人生观
+        </div>
         <textarea
           className="text-back"
           value={texta}
@@ -168,7 +186,11 @@ export default class index extends Component {
         ></textarea>
         <div className="div-back"></div>
         <label>
-          <button type="button" className="but-back">
+          <button
+            type="button"
+            className="but-back"
+            onClick={this.onSubmission}
+          >
             确认提交
           </button>
         </label>

@@ -2,4 +2,4 @@
 
 ### 静态页面网址
 
-https://kf-team.github.io/1808Bxm/build/
+https://team-busness.github.io/.github.io/build/
